@@ -1,0 +1,112 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .tabs button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .tabs button:hover {
+    background: #334155;
+  }
+  
+  .tab {
+    display: none;
+  }
+  
+  .tab.active {
+    display: block;
+  }
+  
+  .profile img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 4px solid #334155;
+  }
+  
+  .profile h1 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+  }
+  
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 2.5rem;
+    margin-top: 1rem;
+  }
+  
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .project {
+    background: #1e293b;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 250px;
+    text-align: left;
+    transition: transform 0.3s;
+  }
+  
+  .project:hover {
+    transform: scale(1.05);
+  }
+  
+  .project img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project h3 {
+    margin: 0.5rem 0 0.3rem;
+    font-size: 1.2rem;
+  }
+  
+  .project p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+  }
+  
