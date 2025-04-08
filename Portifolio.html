@@ -18,7 +18,7 @@
     html, body {
       font-family: 'Inter', sans-serif;
       background-color: #000;
-      color: #fff;
+      color: #ffffff;
       scroll-behavior: smooth;
     }
 
@@ -26,7 +26,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.144);
       display: flex;
       justify-content: center;
       gap: 1rem;
@@ -62,20 +62,30 @@
 
     #about {
       background: url('https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=1920&q=60') no-repeat center center/cover;
-      filter: grayscale(100%);
       color: white;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      text-align: left;
+      text-align: center;
       gap: 2rem;
       max-width: 100vw;
-      padding: 6rem 4rem;
+      padding: 6rem 2rem;
+      filter: none;
+    }
+
+    .skills-bar img {
+      height: 40px;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .skills-bar img:hover {
+      transform: scale(1.1); /* Efeito de zoom nas imagens ao passar o mouse */
     }
 
     .profile-img {
-      flex: 1;
       display: flex;
       justify-content: center;
       filter: none;
@@ -90,10 +100,10 @@
     }
 
     .profile-text {
-      flex: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      text-align: center;
     }
 
     .profile-text h1 {
@@ -101,9 +111,11 @@
       margin-bottom: 1rem;
     }
 
+    /* Modificação aqui para o parágrafo */
     .profile-text p {
-      font-size: 1.2rem;
-      color: #ddd;
+      font-size: 1.4rem; /* Aumenta o tamanho da fonte */
+      color: #fff; /* Altera a cor para branco */
+      font-weight: 600; /* Deixa o texto mais pesado */
     }
 
     .skills-bar {
@@ -115,11 +127,6 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
-    }
-
-    .skills-bar img {
-      height: 40px;
-      object-fit: contain;
     }
 
     #skills, #projects {
@@ -170,13 +177,69 @@
       font-size: 0.9rem;
       color: #ccc;
     }
+
+    /* Redes Sociais */
+    #socials {
+      padding: 2rem 0;
+      background-color: #111;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .social-icons a img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Formulário de Contato */
+    #contact {
+      background: #111;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 100%;
+      margin-top: 3rem;
+      text-align: left;
+    }
+
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+      border: 1px solid #333;
+      background-color: #222;
+      color: #fff;
+    }
+
+    #contact input[type="submit"] {
+      cursor: pointer;
+      background-color: #5c6bc0;
+      color: white;
+      border: none;
+    }
+
+    #contact input[type="submit"]:hover {
+      background-color: #3f4d99;
+    }
+
   </style>
 </head>
 <body>
   <nav class="tabs">
     <button onclick="scrollToSection('about')">Sobre Mim</button>
-    <button onclick="scrollToSection('skills')">Tecnologias</button>
     <button onclick="scrollToSection('projects')">Projetos</button>
+    <button onclick="scrollToSection('contact')">Contato</button>
   </nav>
 
   <section id="about">
@@ -187,10 +250,7 @@
     <div class="profile-img">
       <img src="circular_image.png" alt="Kauã Silva">
     </div>
-  </section>
 
-  <section id="skills">
-    <h2>Tecnologias</h2>
     <div class="skills-bar">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
@@ -201,6 +261,18 @@
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
     </div>
+
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/kau%C3%A3-silva-535b84306/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/LinkedIn_logo.svg" alt="LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/kauasilva" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+        </a>
+        <a href="https://github.com/KauaSilvad" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+        </a>
+      </div>
   </section>
 
   <section id="projects">
@@ -228,6 +300,17 @@
         </a>
       </div>
     </div>
+  </section>
+
+  <!-- Formulário de Contato -->
+  <section id="contact">
+    <h2>Entre em Contato</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="message" placeholder="Sua mensagem..." required></textarea>
+      <input type="submit" value="Enviar Mensagem">
+    </form>
   </section>
 
   <script>
