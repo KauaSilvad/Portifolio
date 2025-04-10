@@ -27,6 +27,7 @@
       width: 100%;
       background: rgba(0, 0, 0, 0.5);
       display: flex;
+      align-items: center;
       justify-content: center;
       gap: 1rem;
       padding: 1rem;
@@ -200,6 +201,86 @@
     #contact-form input[type="submit"]:hover {
       background-color: #3f4d99;
     }
+    #chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  #chat-icon {
+    background-color: #5c6bc0;
+    color: white;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  #chatbox {
+    display: none;
+    background-color: #111;
+    color: #fff;
+    border-radius: 0.5rem;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+  }
+
+  #chat-header {
+    background-color: #333;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  #chat-content {
+    padding: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .chat-message {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .bot-message {
+    background-color: #333;
+  }
+
+  .user-message {
+    background-color: #5c6bc0;
+    align-self: flex-end;
+  }
+
+  input, button {
+    width: 90%;
+    padding: 0.8rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+  }
+
+  #send-btn {
+    background-color: #5c6bc0;
+    border: none;
+    cursor: pointer;
+  }
+
+  #send-btn:hover {
+    background-color: #3f4d99;
+  }
   </style>
 </head>
 <body>
@@ -221,12 +302,12 @@
 
     <div class="skills-bar">
       <div class="icon-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-        <span>JavaScript</span>
-      </div>
-      <div class="icon-item">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
         <span>Python</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        <span>HTML5</span>
       </div>
       <div class="icon-item">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
@@ -241,14 +322,15 @@
         <span>React</span>
       </div>
       <div class="icon-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-        <span>HTML5</span>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+        <span>JavaScript</span>
       </div>
+      
     </div>
 
     <div class="social-icons">
       <div class="icon-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/LinkedIn_logo.svg" alt="LinkedIn">
+        <a href='https://postimg.cc/dDDncgsH' target='_blank'><img src='https://i.postimg.cc/RCLYKzjB/3-1.png' border='0' alt='3-1'/></a>
         <span>LinkedIn</span>
       </div>
       <div class="icon-item">
@@ -267,23 +349,51 @@
     <div class="projects">
       <div class="project">
         <a href="#" target="_blank">
-            <a href='https://postimg.cc/nCn6K6jw' target='_blank'><img src='https://i.postimg.cc/ZKN4mmTZ/Chat-GPT-Image-8-de-abr-de-2025-23-15-26.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-15-26'/></a>
+            <img src='https://i.postimg.cc/ZKN4mmTZ/Chat-GPT-Image-8-de-abr-de-2025-23-15-26.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-15-26'/>
           <h3>Teach.me</h3>
           <p>É uma plataforma super legal para ajudar a galera a aprender tecnologias web de um jeito mais interativo! A interface moderna e responsiva: Perfeita para usar em qualquer dispositivo. Sugestões de tópicos e pesquisa personalizada: Escolha temas como HTML, CSS, JavaScript e TypeScript ou digite suas perguntas para receber ajuda na hora.</p>
         </a>
       </div>
       <div class="project">
         <a href="#" target="_blank">
-            <a href='https://postimg.cc/xkQxYmvp' target='_blank'><img src='https://i.postimg.cc/yNgwmXkK/Chat-GPT-Image-8-de-abr-de-2025-23-26-09.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-26-09'/></a>
+            <img src='https://i.postimg.cc/yNgwmXkK/Chat-GPT-Image-8-de-abr-de-2025-23-26-09.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-26-09'/>
           <h3>Bloqueador de Sites</h3>
           <p>Um bloqueador de sites feito com Flask, HTML e CSS. Permite adicionar ou remover sites no arquivo `hosts` para restringir o acesso. Oferece interface responsiva em preto e roxo, com formulários simples para gerenciar bloqueios diretamente.</p>
         </a>
       </div>
       <div class="project">
         <a href="#" target="_blank">
-            <a href='https://postimg.cc/rR5R8DCg' target='_blank'><img src='https://i.postimg.cc/7hW3n7Cv/Chat-GPT-Image-8-de-abr-de-2025-23-31-35.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-31-35'/></a>
+            <img src='https://i.postimg.cc/7hW3n7Cv/Chat-GPT-Image-8-de-abr-de-2025-23-31-35.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-31-35'/>
           <h3>Banco Central</h3>
           <p>O projeto banco central é um projeto pessoal em python criado e desenvolvido com o objetivo de ficar de olho no mercado, e fazer possíveis cálculos para prever seus possíveis ganhos.</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="#" target="_blank">
+          <img src='https://i.postimg.cc/zXqjrb2m/341764182-65a55631-7ab5-4be1-9b4b-13e86fe39dc2.png' border='0' alt='341764182-65a55631-7ab5-4be1-9b4b-13e86fe39dc2'/>
+          <h3>Lybris</h3>
+          <p>Projeto em que participei em conjunto com uma equipe, para a criação de um sistema de biblioteca de uma escola integral para organizar e integrar a biblioteca na escola</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="#" target="_blank">
+          <img src='https://i.postimg.cc/hGmxxcZb/c2747633-2608-4a06-bd6a-bfb67b91f42b.png' border='0' alt='c2747633-2608-4a06-bd6a-bfb67b91f42b'/>
+          <h3>Doe.it</h3>
+          <p>Outro projeto que fiz em equipe, fazendo um sistema de doação de roupas para instituições carentes e pessoas necessitas</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="#" target="_blank">
+          <img src='https://i.postimg.cc/LsjY5vhx/image.png' border='0' alt='image'/>
+          <h3>Calculadora IP</h3>
+          <p>A Calculadora IP Completa é uma ferramenta fácil e simples que auxilia na configuração e gerenciamento de redes. Com ela, é possível calcular endereços IP, máscaras de sub-rede, endereços de broadcast e muito mais. Ideal para profissionais de TI e estudantes, oferece resultados rápidos e precisos, facilitando a compreensão e otimização de redes.</p>
+        </a>
+      </div>
+      <div class="project">
+        <a href="#" target="_blank">
+          <img src='https://i.postimg.cc/FsZQrS90/722688a4-5b46-4ff8-b047-aff8b4a0c9c3.png' border='0' alt='722688a4-5b46-4ff8-b047-aff8b4a0c9c3'/>
+          <h3>Gerenciador de Senhas</h3>
+          <p>Este gerenciador de senhas oferece uma maneira prática e segura de armazenar e acessar suas senhas de forma criptografada. Com ele, você pode salvar novas senhas e visualizar as senhas já salvas, protegendo todos os dados com uma chave de criptografia única. Essa chave é gerada automaticamente na primeira vez que você usa o sistema.</p>
         </a>
       </div>
     </div>
@@ -299,11 +409,87 @@
     </form>
   </section>
 
+  <div id="chatbot">
+    <div id="chat-icon" onclick="toggleChat()">💬</div>
+    <div id="chatbox">
+      <div id="chat-header">
+        <span>ChatBot</span>
+        <button onclick="closeChat()">X</button>
+      </div>
+      <div id="chat-content">
+        <div class="chat-message bot-message">Olá! Como posso te ajudar?</div>
+      </div>
+      <input type="text" id="user-input" placeholder="Digite sua pergunta..." onkeydown="checkEnter(event)">
+      <button id="send-btn" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
   <script>
     function scrollToSection(id) {
       const section = document.getElementById(id);
       section.scrollIntoView({ behavior: 'smooth' });
     }
+    // Função para abrir e fechar o chatbot
+  function toggleChat() {
+    const chatbox = document.getElementById('chatbox');
+    chatbox.style.display = (chatbox.style.display === 'none' || chatbox.style.display === '') ? 'block' : 'none';
+  }
+
+  function closeChat() {
+    document.getElementById('chatbox').style.display = 'none';
+  }
+
+  // Função para enviar a mensagem
+  function sendMessage() {
+    const userInput = document.getElementById('user-input').value;
+    if (userInput.trim() !== "") {
+      displayMessage(userInput, 'user');
+      document.getElementById('user-input').value = '';
+      getBotResponse(userInput);
+    }
+  }
+
+  // Função para checar a tecla Enter e enviar a mensagem
+  function checkEnter(event) {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  }
+
+  // Função para exibir as mensagens no chat
+  function displayMessage(message, sender) {
+    const chatContent = document.getElementById('chat-content');
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('chat-message', sender === 'user' ? 'user-message' : 'bot-message');
+    newMessage.textContent = message;
+    chatContent.appendChild(newMessage);
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
+  // Função para processar as respostas do bot
+  function getBotResponse(input) {
+    let response = "";
+    
+    // Respostas baseadas nas perguntas
+    if (input.toLowerCase().includes("quantos anos você tem")) {
+      const currentYear = new Date().getFullYear();
+      const age = currentYear - 2007;
+      response = `Eu tenho ${age} anos.`;
+    } else if (input.toLowerCase().includes("Que horario começa a trabalha?")) {
+      response = "Meu horário de trabalho é das 7:00 às 17:00.";
+    } else if (input.toLowerCase().includes("você trabalha de freelance?")) {
+      response = "Sim, trabalho como freelancer! Entre em contato e me envie seu projeto.";
+    } else if (input.toLowerCase().includes("aceita grupos de projetos?")) {
+      response = "Depende do projeto, mas estou aberto a novos desafios!";
+    } else if (input.toLowerCase().includes("onde você mora?")) {
+      response = "Em breve, vou adicionar essa informação!";
+    } else {
+      response = "Desculpe, não entendi sua pergunta. Você pode mandar um e-mail para profissional.kaua@gmail.com.";
+    }
+
+    // Exibir resposta do bot
+    displayMessage(response, 'bot');
+  }
   </script>
 </body>
 </html>
