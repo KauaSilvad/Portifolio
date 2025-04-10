@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Kauã Silva</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -16,7 +15,7 @@
     }
 
     html, body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #000;
       color: #ffffff;
       scroll-behavior: smooth;
@@ -26,12 +25,13 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.144);
+      background: rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: center;
       gap: 1rem;
       padding: 1rem;
       z-index: 1000;
+      backdrop-filter: blur(10px);
     }
 
     .tabs button {
@@ -39,9 +39,10 @@
       border: 2px solid #fff;
       color: #fff;
       padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       cursor: pointer;
       font-size: 1rem;
+      font-weight: bold;
       transition: all 0.3s;
     }
 
@@ -61,34 +62,8 @@
     }
 
     #about {
-      background: url('https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=1920&q=60') no-repeat center center/cover;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), #000), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
       color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      gap: 2rem;
-      max-width: 100vw;
-      padding: 6rem 2rem;
-      filter: none;
-    }
-
-    .skills-bar img {
-      height: 40px;
-      object-fit: contain;
-      border-radius: 0.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    .skills-bar img:hover {
-      transform: scale(1.1); /* Efeito de zoom nas imagens ao passar o mouse */
-    }
-
-    .profile-img {
-      display: flex;
-      justify-content: center;
-      filter: none;
     }
 
     .profile-img img {
@@ -99,26 +74,18 @@
       border: 4px solid #fff;
     }
 
-    .profile-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
     .profile-text h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
-    /* Modificação aqui para o parágrafo */
     .profile-text p {
-      font-size: 1.4rem; /* Aumenta o tamanho da fonte */
-      color: #fff; /* Altera a cor para branco */
-      font-weight: 600; /* Deixa o texto mais pesado */
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 600;
     }
 
-    .skills-bar {
+    .skills-bar, .social-icons {
       width: 100%;
       overflow-x: auto;
       white-space: nowrap;
@@ -129,12 +96,32 @@
       gap: 1rem;
     }
 
-    #skills, #projects {
-      max-width: 1000px;
-      margin: auto;
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.5rem;
+      border-radius: 1rem;
+      width: 80px;
     }
 
-    #skills {
+    .icon-item img {
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .icon-item img:hover {
+      transform: scale(1.1);
+    }
+
+    .icon-item span {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    #projects {
+      background: linear-gradient(to bottom, #000, #111);
       padding-top: 8rem;
     }
 
@@ -173,66 +160,46 @@
       font-size: 1.2rem;
     }
 
-    .project p {
-      font-size: 0.9rem;
-      color: #ccc;
-    }
+.project p {
+  font-size: 0.9rem;
+  color: #ccc;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
 
-    /* Redes Sociais */
-    #socials {
-      padding: 2rem 0;
-      background-color: #111;
-    }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .social-icons a img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      transition: transform 0.3s;
-    }
-
-    .social-icons a img:hover {
-      transform: scale(1.1);
-    }
-
-    /* Formulário de Contato */
     #contact {
       background: #111;
-      padding: 2rem;
+      padding: 3rem 2rem;
       border-radius: 1rem;
       max-width: 100%;
       margin-top: 3rem;
-      text-align: left;
     }
 
-    #contact input, #contact textarea {
+    #contact-form input, #contact-form textarea {
       width: 100%;
-      padding: 1rem;
+      padding: 1.2rem;
       margin: 1rem 0;
       border-radius: 0.5rem;
       border: 1px solid #333;
       background-color: #222;
       color: #fff;
+      font-size: 1.1rem;
     }
 
-    #contact input[type="submit"] {
+    #contact-form input[type="submit"] {
       cursor: pointer;
       background-color: #5c6bc0;
       color: white;
       border: none;
     }
 
-    #contact input[type="submit"]:hover {
+    #contact-form input[type="submit"]:hover {
       background-color: #3f4d99;
     }
-
   </style>
 </head>
 <body>
@@ -248,31 +215,51 @@
       <p>Trabalho com automações, desenvolvimento web e análise de dados.</p>
     </div>
     <div class="profile-img">
-      <img src="circular_image.png" alt="Kauã Silva">
+        <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/5tVcbQsS/166737683.jpg' alt='166737683'/></a>
     </div>
+      
 
     <div class="skills-bar">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+        <span>JavaScript</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+        <span>Python</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+        <span>CSS3</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+        <span>Bootstrap</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+        <span>React</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        <span>HTML5</span>
+      </div>
     </div>
 
     <div class="social-icons">
-        <a href="https://www.linkedin.com/in/kau%C3%A3-silva-535b84306/" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/LinkedIn_logo.svg" alt="LinkedIn">
-        </a>
-        <a href="https://www.instagram.com/kauasilva" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
-        </a>
-        <a href="https://github.com/KauaSilvad" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
-        </a>
+      <div class="icon-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/LinkedIn_logo.svg" alt="LinkedIn">
+        <span>LinkedIn</span>
       </div>
+      <div class="icon-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+        <span>Instagram</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+        <span>GitHub</span>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
@@ -280,29 +267,28 @@
     <div class="projects">
       <div class="project">
         <a href="#" target="_blank">
-          <img src="/project1.png" alt="Projeto 1">
-          <h3>Projeto 1</h3>
-          <p>Breve descrição do projeto 1.</p>
+            <a href='https://postimg.cc/nCn6K6jw' target='_blank'><img src='https://i.postimg.cc/ZKN4mmTZ/Chat-GPT-Image-8-de-abr-de-2025-23-15-26.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-15-26'/></a>
+          <h3>Teach.me</h3>
+          <p>É uma plataforma super legal para ajudar a galera a aprender tecnologias web de um jeito mais interativo! A interface moderna e responsiva: Perfeita para usar em qualquer dispositivo. Sugestões de tópicos e pesquisa personalizada: Escolha temas como HTML, CSS, JavaScript e TypeScript ou digite suas perguntas para receber ajuda na hora.</p>
         </a>
       </div>
       <div class="project">
         <a href="#" target="_blank">
-          <img src="/project2.png" alt="Projeto 2">
-          <h3>Projeto 2</h3>
-          <p>Breve descrição do projeto 2.</p>
+            <a href='https://postimg.cc/xkQxYmvp' target='_blank'><img src='https://i.postimg.cc/yNgwmXkK/Chat-GPT-Image-8-de-abr-de-2025-23-26-09.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-26-09'/></a>
+          <h3>Bloqueador de Sites</h3>
+          <p>Um bloqueador de sites feito com Flask, HTML e CSS. Permite adicionar ou remover sites no arquivo `hosts` para restringir o acesso. Oferece interface responsiva em preto e roxo, com formulários simples para gerenciar bloqueios diretamente.</p>
         </a>
       </div>
       <div class="project">
         <a href="#" target="_blank">
-          <img src="/project3.png" alt="Projeto 3">
-          <h3>Projeto 3</h3>
-          <p>Breve descrição do projeto 3.</p>
+            <a href='https://postimg.cc/rR5R8DCg' target='_blank'><img src='https://i.postimg.cc/7hW3n7Cv/Chat-GPT-Image-8-de-abr-de-2025-23-31-35.png' border='0' alt='Chat-GPT-Image-8-de-abr-de-2025-23-31-35'/></a>
+          <h3>Banco Central</h3>
+          <p>O projeto banco central é um projeto pessoal em python criado e desenvolvido com o objetivo de ficar de olho no mercado, e fazer possíveis cálculos para prever seus possíveis ganhos.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Formulário de Contato -->
   <section id="contact">
     <h2>Entre em Contato</h2>
     <form id="contact-form">
